@@ -95,11 +95,11 @@ class _MyAppState extends State<MyApp> {
       'localizedModel': data.localizedModel,
       'identifierForVendor': data.identifierForVendor,
       'isPhysicalDevice': data.isPhysicalDevice,
-      'utsname.sysname:': data.utsname.sysname,
-      'utsname.nodename:': data.utsname.nodename,
-      'utsname.release:': data.utsname.release,
-      'utsname.version:': data.utsname.version,
-      'utsname.machine:': data.utsname.machine,
+      'utsname.sysname': data.utsname.sysname,
+      'utsname.nodename': data.utsname.nodename,
+      'utsname.release': data.utsname.release,
+      'utsname.version': data.utsname.version,
+      'utsname.machine': data.utsname.machine,
     };
   }
 
@@ -130,6 +130,7 @@ class _MyAppState extends State<MyApp> {
                   padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                   child: Text(
                     '${_deviceData[property]}',
+                    key: Key(property),
                     overflow: TextOverflow.ellipsis,
                   ),
                 )),

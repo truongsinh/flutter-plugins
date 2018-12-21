@@ -14,10 +14,15 @@ buildscript {
 
 apply from: "./_build.gradle"
 
-if(null == System.getenv('FLUTTER_ROOT')) {
-    throw new GradleException('Required FLUTTER_ROOT environment variable not set.')
+String flutterRootPath = System.getenv('FLUTTER_ROOT')
+if(null == flutterRootPath) {
+    flutterRootPath = System.getenv('FLUTTER_HOME')
+}
+if(null == flutterRootPath) {
+    flutterRootPath = System.getenv('FLUTTER_HOME')
+    throw new GradleException('Required FLUTTER_ROOT or FLUTTER_HOME environment variable not set.')
 }
 
 dependencies {
-    implementation files("${System.getenv('FLUTTER_ROOT')}/bin/cache/artifacts/engine/android-arm/flutter.jar")
+    implementation files("${flutterRootPath}/bin/cache/artifacts/engine/android-arm/flutter.jar")
 }

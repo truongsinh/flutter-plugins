@@ -16,7 +16,7 @@ mv build.gradle _build.gradle
 cp $SCRIPT_DIR/build.gradle .
 
 # equivalent to try cache
-{ gradle "${ACTIONS[@]}"; } || { EXIT_CODE=$?; }
+{ $SCRIPT_DIR/gradlew "${ACTIONS[@]}"; } || { EXIT_CODE=$?; }
 rm build.gradle
 mv _build.gradle build.gradle
 

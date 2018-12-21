@@ -11,7 +11,7 @@ if [ -z "$PACKAGE" ]; then
     exit 1
 fi
 
-cd packages/$PACKAGE
+cd $REPO_DIR/packages/$PACKAGE
 flutter test --coverage
 cd android
 $SCRIPT_DIR/gradle_work_around.sh jacocoTestDebugUnitTestReport

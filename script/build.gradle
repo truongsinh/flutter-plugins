@@ -14,6 +14,10 @@ buildscript {
 
 apply from: "./_build.gradle"
 
+if(null == System.getenv('FLUTTER_ROOT')) {
+    throw new GradleException('Required FLUTTER_ROOT environment variable not set.')
+}
+
 dependencies {
     implementation files("${System.getenv('FLUTTER_ROOT')}/bin/cache/artifacts/engine/android-arm/flutter.jar")
 }

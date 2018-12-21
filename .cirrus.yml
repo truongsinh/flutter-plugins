@@ -18,7 +18,10 @@ task:
         - sudo apt-get update
         - sudo apt-get install -y --allow-unauthenticated clang-format-7
       format_script: ./script/incremental_build.sh format --travis --clang-format=clang-format-7
-      test_script: ./script/incremental_build.sh test
+      test_script: 
+        - printenv
+        - which flutter
+        - ./script/incremental_build.sh test
     - name: analyze
       script: ./script/incremental_build.sh analyze
     - name: build-apks+java-test

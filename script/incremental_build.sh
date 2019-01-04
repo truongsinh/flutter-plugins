@@ -22,9 +22,18 @@ if [[ "$CHANGED_PACKAGES" == "" || "${BRANCH_NAME}" == "master" ]]; then
   CHANGED_PACKAGE_LIST=($(ls packages))
   CHANGED_PACKAGES=$(join , $(ls packages))
 fi
+
+IFS=$' '
+shard_info=($($SCRIPT_DIR/get_shard_info.sh $PLUGIN_SHARDING))
+shardIndex=${shard_info[0]}
+shardCount=${shard_info[1]}
+listSize=${#CHANGED_PACKAGE_LIST[@]}
+shardSize=$(($listSize/$shardCount + $(($listSize % $shardCount == 0 ? 0 : 1))  ))
+startIndex=$(( $shardIndex * $shardSize  ))
+
 # @todo move this to flutter_plugin_tools
 if [[ "$@" == "java-test" ]]; then
-  for PACKAGE in "${CHANGED_PACKAGE_LIST[@]}"; do
+  for PACKAGE in "${CHANGED_PACKAGE_LIST[@]:${startIndex}:${shardSize}}"; do
     PACKAGE=$PACKAGE $SCRIPT_DIR/test_coverage_single_package.sh
   done
 else

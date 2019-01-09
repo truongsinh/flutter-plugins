@@ -87,6 +87,7 @@ const main = async () => {
         let coverage = 0;
         if (length > 0) {
           if (length === 1) {
+            color = 'red';
             coverage = parseInt(
               document
                 .querySelector("#tree > tbody > tr > td:nth-last-child(1)")

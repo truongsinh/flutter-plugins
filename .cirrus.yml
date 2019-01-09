@@ -7,10 +7,7 @@ task:
     image: truongsinh/flutter-xcbuild:latest
   env:
     PATH: $PATH:/usr/local/bin
-  upgrade_script:
-    - flutter channel master
-    - flutter upgrade
-    - git fetch origin master
+  activate_script: pub global activate flutter_plugin_tools
   build_script:
     - ./script/incremental_build.sh build-examples --ipa
     - ./script/incremental_build.sh ios-test  # @todo possible we don't have to build ipa anymore?

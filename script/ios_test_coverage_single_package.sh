@@ -15,7 +15,7 @@ if [ -d $REPO_DIR/packages/$PACKAGE/ios/Tests ]
 then 
 
 cd $REPO_DIR/packages/$PACKAGE/example/ios/
-xcodebuild \
+xcbuild \
   -scheme Runner \
   -workspace Runner.xcworkspace \
   -sdk iphonesimulator GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES \

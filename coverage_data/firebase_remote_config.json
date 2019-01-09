@@ -2,5 +2,5 @@
   "schemaVersion": 1,
   "label": "firebase_remote_config",
   "message": "80%",
-  "color": "gray"
+  "color": "red"
 }

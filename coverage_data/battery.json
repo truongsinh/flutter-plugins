@@ -2,5 +2,5 @@
   "schemaVersion": 1,
   "label": "battery",
   "message": "88%",
-  "color": "gray"
+  "color": "red"
 }

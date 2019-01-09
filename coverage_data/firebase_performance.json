@@ -2,5 +2,5 @@
   "schemaVersion": 1,
   "label": "firebase_performance",
   "message": "83%",
-  "color": "gray"
+  "color": "red"
 }

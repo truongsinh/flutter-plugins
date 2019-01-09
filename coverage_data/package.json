@@ -1,0 +1,16 @@
+{
+  "name": "script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate_coverage_data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsdom": "^13.1.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  }
+}

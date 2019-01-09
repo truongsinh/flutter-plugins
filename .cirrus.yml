@@ -8,6 +8,7 @@ task:
   env:
     PATH: $PATH:/usr/local/bin
   setup_script:
+    - apt-get update -y
     - apt-get install -y curl
     - git clone https://github.com/flutter/flutter.git
     - git fetch origin master

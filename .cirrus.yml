@@ -4,18 +4,13 @@ env:
 task:
   name: build-ipas+ios-test
   container:
-    image: cirrusci/flutter:latest
+    image: truongsinh/flutter-xcbuild:latest
   env:
     PATH: $PATH:/usr/local/bin
   upgrade_script:
     - flutter channel master
     - flutter upgrade
     - git fetch origin master
-  setup_script:
-    - sudo -i && apt-get update -y && apt-get install -y git cmake ninja-build libpng-dev zlib1g-dev libxml2-dev pkg-config
-    - sudo -i && git clone https://github.com/facebook/xcbuild && cd xcbuild && git submodule update --init && make -j 8 && cp -a build/. /usr/bin/
-    - exit
   build_script:
-    - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
     - ./script/incremental_build.sh build-examples --ipa
     - ./script/incremental_build.sh ios-test  # @todo possible we don't have to build ipa anymore?

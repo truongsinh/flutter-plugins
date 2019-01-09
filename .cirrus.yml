@@ -12,8 +12,10 @@ task:
     - flutter upgrade
     - git fetch origin master
   setup_script:
-    - sudo apt-get update -y && sudo apt-get install -y git cmake ninja-build libpng-dev zlib1g-dev libxml2-dev pkg-config
+    - sudo -i
+    - apt-get update -y && apt-get install -y git cmake ninja-build libpng-dev zlib1g-dev libxml2-dev pkg-config
     - git clone https://github.com/facebook/xcbuild && cd xcbuild && git submodule update --init && make -j 8 && cp -a build/. /usr/bin/
+    - exit
   build_script:
     - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
     - ./script/incremental_build.sh build-examples --ipa

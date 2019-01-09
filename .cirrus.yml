@@ -8,6 +8,15 @@ task:
   env:
     PATH: $PATH:/usr/local/bin
   activate_script: pub global activate flutter_plugin_tools
-  build_script:
-    - ./script/incremental_build.sh build-examples --ipa
-    - ./script/incremental_build.sh ios-test  # @todo possible we don't have to build ipa anymore?
+  matrix:
+    - name: orignal
+      script:
+      - ./script/incremental_build.sh build-examples --ipa
+      - ./script/incremental_build.sh ios-test  # @todo possible we don't have to build ipa anymore?
+    - name: test only
+      script:
+      - ./script/incremental_build.sh ios-test  # @todo possible we don't have to build ipa anymore?
+    - name: single flutter build
+      script:
+      - cd packages/device_info  # @todo possible we don't have to build ipa anymore?
+      - flutter build ios

@@ -4,6 +4,7 @@
   "description": "",
   "main": "generate_coverage_data.js",
   "scripts": {
+        "start": "./generate.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -2,7 +2,7 @@
 
 //https://codecov.io/gh/truongsinh/flutter-plugins/tree/master/packages/cloud_firestore
 
-const dest = "./packages/";
+const dest = __dirname + "/../packages/";
 const { readdir, writeFile } = require("fs");
 const { promisify } = require("util");
 const [readDirAsync, writeFileAsync] = [
@@ -83,11 +83,10 @@ const main = async () => {
         const jsDomNodeList = document.querySelectorAll("#tree > tbody > tr");
         const length = jsDomNodeList.length;
 
-        let color = "gray";
+                let color = "red";
         let coverage = 0;
         if (length > 0) {
           if (length === 1) {
-            color = 'red';
             coverage = parseInt(
               document
                 .querySelector("#tree > tbody > tr > td:nth-last-child(1)")

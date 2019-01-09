@@ -7,10 +7,8 @@ task:
     image: mattpaletta/xcbuild:latest
   env:
     PATH: $PATH:/usr/local/bin
-    matrix:
-      PLUGIN_SHARDING: "--shardIndex 0 --shardCount 2"
-      PLUGIN_SHARDING: "--shardIndex 1 --shardCount 2"
   setup_script:
+    - apt-get install -y curl
     - git clone https://github.com/flutter/flutter.git
     - git fetch origin master
     - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH

@@ -6,7 +6,7 @@ import 'dart:async';
 
 import 'package:async/async.dart';
 import 'package:flutter/services.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:battery/battery.dart';
 import 'package:mockito/mockito.dart';
 

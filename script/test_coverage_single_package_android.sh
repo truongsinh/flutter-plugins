@@ -13,13 +13,6 @@ fi
 
 cd $REPO_DIR/packages/$PACKAGE/example/android/
 ./gradlew jacocoTestDebugUnitTestReport
-cd $REPO_DIR/packages/$PACKAGE
-if [ -d ./test ]   # for file "if [-f /home/rama/file]" 
-then 
-    flutter test --coverage
-else
-    echo "$REPO_DIR/packages/$PACKAGE/test does not exists, skipping"
-fi
 
 cd $REPO_DIR
 bash <(curl -s https://codecov.io/bash) -F "$PACKAGE" -s packages/$PACKAGE -cz

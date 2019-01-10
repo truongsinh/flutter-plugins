@@ -15,4 +15,4 @@ cd $REPO_DIR/packages/$PACKAGE/example/android/
 ./gradlew jacocoTestDebugUnitTestReport
 
 cd $REPO_DIR
-bash <(curl -s https://codecov.io/bash) -F "$PACKAGE" -s packages/$PACKAGE -cz
+bash <(curl -s https://codecov.io/bash) -F "$PACKAGE" -s packages/$PACKAGE -cZ

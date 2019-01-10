@@ -23,7 +23,7 @@ xcodebuild \
   -enableCodeCoverage YES \
   test
 
-bash <(curl -s https://codecov.io/bash) -F "$PACKAGE" -J "Tests$" -cz
+bash <(curl -s https://codecov.io/bash) -F "$PACKAGE" -J "Tests$" -cZ
 
 else
     echo "$REPO_DIR/packages/$PACKAGE/ios/Tests does not exists, skipping"

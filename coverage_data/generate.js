@@ -61,6 +61,14 @@ class LazyMap extends Lazy {
   }
 }
 
+const getFileList = async (codeCovUrl) => {
+  const codeCovHtmlResponse = await rp(codeCovUrl);
+  const document = new JSDOM(codeCovHtmlResponse).window.document;
+  const jsDomNodeList = document.querySelectorAll("#tree > tbody > tr");
+  const fileList = Array.from(jsDomNodeList).map((n) => n.textContent.trim().split('\n')[0]);
+  return fileList
+
+}
 const main = async () => {
   const dirList = await readDirAsync(dest);
   const dirListGenerator = new Lazy(
@@ -70,21 +78,27 @@ const main = async () => {
       }
     })()
   );
-  // dirList
-  dirListGenerator
+  dirList
+  // dirListGenerator
     .map(async dirName => {
       if (!dirName) {
         return;
       }
       try {
-        const codeCovUrl = `https://codecov.io/gh/truongsinh/flutter-plugins/tree/master/packages/${dirName}`;
-        const codeCovHtmlResponse = await rp(codeCovUrl);
-        const document = new JSDOM(codeCovHtmlResponse).window.document;
-        const jsDomNodeList = document.querySelectorAll("#tree > tbody > tr");
-        const length = jsDomNodeList.length;
-
-                let color = "red";
-        let coverage = 0;
+        let codeCovUrl = `https://codecov.io/gh/truongsinh/flutter-plugins/tree/master/packages/${dirName}/lib`;
+        let localDirPath = `${dest}/${dirName}/lib`;
+        let localFileList = await readDirAsync(localDirPath);
+        if (localFileList.indexOf('src') >= 0){
+          localDirPath += '/src'
+          codeCovUrl += '/src'
+          localFileList = await readDirAsync(localDirPath);
+        }
+        let fileList = await getFileList(codeCovUrl);
+        if (fileList.length !== localFileList.length) {
+          console.log(fileList.length - localFileList.length)
+          // console.log(fileList, localFileList, codeCovUrl);
+        }
+        return
         if (length > 0) {
           if (length === 1) {
             coverage = parseInt(
@@ -130,6 +144,7 @@ const main = async () => {
       }
     })
     .map(async objPromise => {
+      return;
       const obj = await objPromise;
       console.log(obj);
       if (!obj) {

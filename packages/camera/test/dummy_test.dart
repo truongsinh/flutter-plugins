@@ -4,6 +4,6 @@ import 'package:camera/camera.dart';
 
 void main() {
   test('dummy', () async {
-    final CameraController _ = CameraController();
+    final List<CameraDescription> _ = await availableCameras();
   });
 }

@@ -4,6 +4,6 @@ import 'package:quick_actions/quick_actions.dart';
 
 void main() {
   test('dummy', () async {
-    final QuickActions _ = QuickActions();
+    final QuickActions _ = const QuickActions();
   });
 }

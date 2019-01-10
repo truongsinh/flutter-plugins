@@ -34,11 +34,15 @@ startIndex=$(( $shardIndex * $shardSize  ))
 # @todo move this to flutter_plugin_tools
 if [[ "$@" == "java-test" ]]; then
   for PACKAGE in "${CHANGED_PACKAGE_LIST[@]:${startIndex}:${shardSize}}"; do
-    PACKAGE=$PACKAGE $SCRIPT_DIR/test_coverage_single_package.sh
+    PACKAGE=$PACKAGE $SCRIPT_DIR/test_coverage_single_package_android.sh
+  done
+elif [[ "$@" == "test" ]]; then
+  for PACKAGE in "${CHANGED_PACKAGE_LIST[@]:${startIndex}:${shardSize}}"; do
+    PACKAGE=$PACKAGE $SCRIPT_DIR/test_coverage_single_package_dart.sh
   done
 elif [[ "$@" == "ios-test" ]]; then
   for PACKAGE in "${CHANGED_PACKAGE_LIST[@]:${startIndex}:${shardSize}}"; do
-    PACKAGE=$PACKAGE $SCRIPT_DIR/ios_test_coverage_single_package.sh
+    PACKAGE=$PACKAGE $SCRIPT_DIR/test_coverage_single_package_ios.sh
   done
 else
   (cd "$REPO_DIR" && pub global run flutter_plugin_tools "${ACTIONS[@]}" --plugins="$CHANGED_PACKAGES" $PLUGIN_SHARDING)

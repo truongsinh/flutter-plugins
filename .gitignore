@@ -7,6 +7,8 @@
 .pub/
 .dart_tool/
 pubspec.lock
+.project
+*.xcsettings
 
 Podfile
 Podfile.lock
@@ -20,10 +22,12 @@ ServiceDefinitions.json
 xcuserdata/
 
 local.properties
+keystore.properties
 .gradle/
 gradlew
 gradlew.bat
 gradle-wrapper.jar
+gradle-wrapper.properties
 *.iml
 
 GeneratedPluginRegistrant.h
@@ -31,3 +35,4 @@ GeneratedPluginRegistrant.m
 GeneratedPluginRegistrant.java
 build/
 .flutter-plugins
+

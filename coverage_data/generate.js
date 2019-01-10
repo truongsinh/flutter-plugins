@@ -136,7 +136,7 @@ const main = async () => {
         return;
       }
       await writeFileAsync(
-        __dirname + "/" + obj.label + ".json",
+        __dirname + "/dist/" + obj.label + ".json",
         JSON.stringify(obj, null, 2)
       );
     })

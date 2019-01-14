@@ -11,22 +11,21 @@ import 'package:battery/battery.dart';
 import 'package:mockito/mockito.dart';
 
 void main() {
-  MockMethodChannel methodChannel;
+  const MethodChannel methodChannel  = MethodChannel('plugins.flutter.io/battery');
   MockEventChannel eventChannel;
   Battery battery;
 
   setUp(() {
-    methodChannel = MockMethodChannel();
     eventChannel = MockEventChannel();
     battery = Battery.private(methodChannel, eventChannel);
   });
 
+  tearDown(() {
+    methodChannel.setMockMethodCallHandler(null);
+  });
+
   test('batteryLevel', () async {
-    // TODO(amirh): remove this on when the invokeMethod update makes it to stable Flutter.
-    // https://github.com/flutter/flutter/issues/26431
-    // ignore: strong_mode_implicit_dynamic_method
-    when(methodChannel.invokeMethod('getBatteryLevel'))
-        .thenAnswer((Invocation invoke) => Future<int>.value(42));
+    methodChannel.setMockMethodCallHandler((MethodCall _) async => 42);
     expect(await battery.batteryLevel, 42);
   });
 
@@ -68,7 +67,5 @@ void main() {
     });
   });
 }
-
-class MockMethodChannel extends Mock implements MethodChannel {}
 
 class MockEventChannel extends Mock implements EventChannel {}

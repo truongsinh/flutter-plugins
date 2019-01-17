@@ -1,15 +1,25 @@
+# Fork of official companion plugins
+This `image_picker_modern` is a fork of official companion plugin `image_picker` with several changes/enhancements, while the maintainer commit to keep the API compatible and code up-to-date with the upstream. Just replace `image_picker` with `image_picker_modern` in the official instruction to use.
+
+Vision:
+- Visible unit test coverage [![](https://shields-staging-pr-2473.herokuapp.com/badge/endpoint.svg?url=https://flutter-plugins-coverage.netlify.com/image_picker.json)](https://codecov.io/gh/truongsinh/flutter-plugins/tree/master/packages/image_picker)
+- Unit test for all parts (dart, ios, android)
+- Convert all plugins to Swift/Kotlin for better engagement with the community using modern languages
+- Fix cash with unit test [flutter/flutter#21863](https://github.com/flutter/flutter/issues/21863) `image_picker: FATAL EXCEPTION when choosing an image from downloads`
+- Ultimately merged back to upstream
+
 # Image Picker plugin for Flutter
 
-[![pub package](https://img.shields.io/pub/v/image_picker.svg)](https://pub.dartlang.org/packages/image_picker)
+[![pub package](https://img.shields.io/pub/v/image_picker_modern.svg)](https://pub.dartlang.org/packages/image_picker_modern)
 
 A Flutter plugin for iOS and Android for picking images from the image library,
 and taking new pictures with the camera.
 
-*Note*: This plugin is still under development, and some APIs might not be available yet. [Feedback welcome](https://github.com/flutter/flutter/issues) and [Pull Requests](https://github.com/flutter/plugins/pulls) are most welcome!
+*Note*: This plugin is still under development, and some APIs might not be available yet. [Feedback welcome](https://github.com/flutter/flutter/issues) and [Pull Requests](https://github.com/truongsinh/flutter-plugins/pulls) are most welcome!
 
 ## Installation
 
-First, add `image_picker` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
+First, add `image_picker_modern` as a [dependency in your pubspec.yaml file](https://flutter.io/platform-plugins/).
 
 ### iOS
 
@@ -26,7 +36,7 @@ No configuration required - the plugin should work out of the box.
 ### Example
 
 ``` dart
-import 'package:image_picker/image_picker.dart';
+import 'package:image_picker_modern/image_picker_modern.dart';
 
 class MyHomePage extends StatefulWidget {
   @override

@@ -6,7 +6,7 @@ dependencies:
   video_player: 0.5.2
   flutter:
     sdk: flutter
-  image_picker:
+  image_picker_modern:
     path: ../
 
 flutter:

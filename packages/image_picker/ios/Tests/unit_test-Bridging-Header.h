@@ -2,5 +2,5 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#import "image_picker/ImagePickerPlugin+Internal.h"
-#import "image_picker/ImagePickerPlugin.h"
+#import "image_picker_modern/ImagePickerPlugin+Internal.h"
+#import "image_picker_modern/ImagePickerPlugin.h"

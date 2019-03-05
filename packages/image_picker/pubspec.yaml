@@ -6,7 +6,7 @@ authors:
   - Rhodes Davis Jr. <rody.davis.jr@gmail.com>
   - TruongSinh Tran-Nguyen <i@truongsinh.pro>
 homepage: https://github.com/truongsinh/flutter-plugins/tree/master/packages/image_picker
-version: 0.4.13-1
+version: 0.4.12+2
 
 flutter:
   plugin:
